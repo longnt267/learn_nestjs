@@ -1,4 +1,5 @@
 import { BaseTable } from 'src/base';
+import { UserRoleEnum } from 'src/enums/user.enum';
 import { Column, Entity } from 'typeorm';
 
 @Entity()
@@ -17,4 +18,10 @@ export class Users extends BaseTable {
         type: 'varchar',
     })
     password: string;
+
+    @Column({
+        type: 'enum',
+        enum: UserRoleEnum
+    })
+    role: UserRoleEnum;
 }
